@@ -32,7 +32,7 @@ async def create_summary(data: Summary_Data):
     result : str
         Returns the inferred summary.
     """
-    # get the length wordcount of the input text
+    # get wordcount of the input text
     input_text_wordcount = len(data.text.split())
 
     # get the summary with the summarize function
