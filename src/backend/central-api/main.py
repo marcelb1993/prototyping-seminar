@@ -32,11 +32,13 @@ templates = Jinja2Templates(directory="templates")
 async def root():
     return {"message": """Test the swagger API via http://localhost:8000/docs and the frontend via http://localhost:8000/summarization_app"""}
 
+
 # initialize GET-request for initial frontend based on item.html in /templates
 @app.get("/summarization_app", response_class=HTMLResponse)
 async def summarization(request: Request):
     summary = "Please insert some text in the input-box."
     return templates.TemplateResponse("item.html", context={"request": request, "summary": summary})
+
 
 # POST-request to send data from frontend to the summarization microservice
 # via the central-API
@@ -55,7 +57,8 @@ async def summarization(request: Request, txt: str = Form(...), ratio: float = F
     """
 
     # specify the URL that the POST-request needs to be sent to
-    # to receive the summarization 
+    # to receive the summarization
+    # url = "http://localhost:8001/summarization-api/"
     url = "http://summary-api:8001/summarization-api/"
 
     # specify request-body and -parameter to fit summarization-microservice
@@ -72,8 +75,3 @@ async def summarization(request: Request, txt: str = Form(...), ratio: float = F
     # return the text-summary embedded in the frontend
     # >> frontend-template is specified as "item.html" in the /templates-folder
     return templates.TemplateResponse("item.html", context={"request": request, "summary": summary})
-
-
-# DEBUGGING SETUP
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8050)
