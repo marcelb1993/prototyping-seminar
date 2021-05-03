@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Summarization App</title>
+    <!-- here, style.css from /static-folder is imported -->
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<p><span class="some_text">Enter the text that should be summarized:</span></p>
+
+<form method="post">
+
+    <!-- input-textbox that is linked with the central-API code ("main.py")
+    via the "txt"-tag -->
+    Text:<br>
+    <textarea name="txt" cols="50" rows="10"></textarea><br><br>
+
+    Summary  length (proportion of total number of sentences):<br>
+    <!-- input-box that is linked with the central-API code ("main.py")
+    via the "ratio"-name -->
+    <input type="number" min="0" max="1" step="0.01" name="ratio" value="0.2"/><br><br>
+
+    <!-- the button to submit both values to the POST-request of the central-API
+    to the summarization microservice -->
+    <input type="submit">
+
+</form>
+
+<br>
+<span class="summary_text">Summary:</span><br>
+    <!-- the final summary is printed here -->
+    <span class="summary_print">{{ summary }}</span>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+fastapi==0.63.0
+gensim==3.8.3
+pydantic==1.8.1
+uvicorn==0.13.4
+requests==2.25.1
+jinja2==2.11.3
+aiofiles==0.6.0
+python-multipart==0.0.5

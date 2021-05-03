@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  central-api:
+    build: ./central-api
+    ports:
+      - 8000:8000
+
+  summary-api:
+    build: ./summary-api
+    ports:
+      - 8001:8001
