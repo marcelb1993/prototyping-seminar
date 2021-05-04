@@ -1,1 +1,1 @@
-# test_prototype_repo
+We have a running frontend and backend. Now we will containerize the application. 
