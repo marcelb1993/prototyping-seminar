@@ -1,4 +1,4 @@
-In your console to cd to src/backend folder. Then run the cmd 
+In your console cd to src/backend folder. Then run the cmd 
 
   docker compose up --build
   
