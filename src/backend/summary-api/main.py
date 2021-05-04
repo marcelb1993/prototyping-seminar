@@ -13,13 +13,13 @@ from gensim.summarization.summarizer import summarize # https://radimrehurek.com
 app = FastAPI()
 
 # BaseModel with text and ratio to define the expected body in the create_summary function 
-class Summary_Data(BaseModel):
+class SummaryData(BaseModel):
     text: str
     ratio: float
 
 
 @app.post("/summarization-api/")
-async def create_summary(data: Summary_Data):
+async def create_summary(data: SummaryData):
     """ Create an extractive summarization with text rank algorithm within the gensim package.
 
     Parameters
